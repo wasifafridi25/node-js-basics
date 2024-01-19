@@ -17,6 +17,11 @@ const server = http.createServer((req, res) => {
             path += 'about.html'
             res.statusCode = 200
             break
+        case '/about-none':
+            res.statusCode = 301
+            res.setHeader('Location', '/about')
+            res.end()
+            break
         default:
             path += '404.html'
             res.statusCode = 404
@@ -39,8 +44,11 @@ const server = http.createServer((req, res) => {
     
 
 })
+//package.json
+//This is where all the dependencies will be present as these are the packages the project depends on
+//dependencies are basically all the packages that we have installed locally in our project
 
-
+//package-lock.json keeps track of the different version of the dependencies we have installed in our project. 
 
 server.listen(3000, 'localhost', () => {
     console.log('Listening for requests on port 3000')
