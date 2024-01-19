@@ -1,9 +1,21 @@
 const http = require("http");
 const fs = require('fs')
+const _ = require('lodash')
 
 const server = http.createServer((req, res) => {
     console.log('URL: ', req.url)
     console.log(`Method: ${req.method}`)
+
+    //lodash
+    const num = _.random(0, 20)
+    console.log(num)
+
+    const greet = _.once(() => {
+        console.log('Hello everyone')
+    })
+
+    greet()
+    greet()
 
     res.setHeader('Content-Type', 'text/html')
 
@@ -39,10 +51,6 @@ const server = http.createServer((req, res) => {
         }
     })
     
-    
-
-    
-
 })
 //package.json
 //This is where all the dependencies will be present as these are the packages the project depends on
